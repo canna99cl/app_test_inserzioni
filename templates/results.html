@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block title %}Risultati{% endblock %}
+{% block content %}
+<h2>Risultati dell'Analisi</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Nome Pagina</th>
+            <th>Numero di Inserzioni</th>
+            <th>Sito Web</th>
+            <th>Data di Pubblicazione</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% if data %}
+            {% for item in data %}
+            <tr>
+                <td>{{ item.nome_pagina }}</td>
+                <td>{{ item.numero_inserzioni }}</td>
+                <td><a href="{{ item.sito_web }}" target="_blank">Visita</a></td>
+                <td>{{ item.data_pubblicazione }}</td>
+            </tr>
+            {% endfor %}
+        {% else %}
+            <tr>
+                <td colspan="4">Nessun risultato trovato.</td>
+            </tr>
+        {% endif %}
+    </tbody>
+</table>
+<br>
+<a href="{{ url_for('dashboard') }}">Torna alla Dashboard</a>
+{% endblock %}

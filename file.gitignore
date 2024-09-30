@@ -1,0 +1,14 @@
+# Ambiente virtuale
+venv/
+env/
+
+# File compilati di Python
+__pycache__/
+*.py[cod]
+
+# File di configurazione o sensibili
+*.env
+.env
+
+# File di log
+*.log

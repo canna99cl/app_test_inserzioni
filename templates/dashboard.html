@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}Dashboard{% endblock %}
+{% block content %}
+<h2>Benvenuto nella Dashboard!</h2>{% if error %}
+<p style="color:red;">{{ error }}</p>
+{% endif %}
+<p>Inserisci l'URL della libreria di inserzioni per iniziare l'analisi.</p>
+<form method="POST" action="{{ url_for('process_url') }}">
+    <input type="text" name="ads_url" placeholder="Inserisci l'URL" required style="width: 400px;">
+    <button type="submit">Analizza</button>
+</form>
+<br>
+<a href="{{ url_for('logout') }}">Logout</a>
+{% endblock %}
+
+
